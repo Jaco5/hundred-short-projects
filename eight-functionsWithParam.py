@@ -10,4 +10,16 @@ coverage = 5
 paint_calc(height=test_h, width=test_w, cover=coverage)
 
 
+#Prime checker
+
+def prime_checker(number):
+    if number % 2 != 0 and number % 3 != 0 and number % 5 != 0 and number % 7 != 0:
+        print("It's a prime number.")
+    else: 
+        print("It's not a prime number.")
+
+
+
+n = int(input("Check this number: "))
+prime_checker(number=n)
 
