@@ -1,27 +1,40 @@
-def encrypt(text, shift):
-    cipherText = ""
+def encrypt(text, seed):
+    encryptedStr = ""
+    switch = True
     for ch in text:
         if ch.isalpha():
-            new_ch = ord(ch) + shift
+            if switch:
+                new_ch = ord(ch) + int(seed[0])
+                switch = False
+            else:
+                new_ch = ord(ch) + int(seed[1])
+                switch = True
             if new_ch > ord('z'):
                 new_ch -= 26
             ch = chr(new_ch)
-        cipherText += ch
-    print(cipherText)
+        encryptedStr += ch
+    print(encryptedStr)
 
-def decrypt(text, shift):
-    decipheredText = ""
+def decrypt(text, seed):
+    decryptedStr = ""
+    switch = True
     for ch in text:
         if ch.isalpha():
-            new_ch = ord(ch) - shift
+            if switch:
+                new_ch = ord(ch) - int(seed[0])
+                switch = False
+            else:
+                new_ch = ord(ch) - int(seed[1])
+                switch = True
             if new_ch < ord('a'):
                 new_ch += 26
             ch = chr(new_ch)
-        decipheredText += ch
-    print(decipheredText)
+        decryptedStr += ch
+    print(decryptedStr)
  
 textToCipher = input("Message to be encrypted: ")
-cipherShift = int(input("Enter single digit seed: "))
+#if left blank generate random
+cipherseed = input("Enter double digit seed: ")
 
-encrypt(textToCipher, cipherShift)
+encrypt(textToCipher, cipherseed)
 
