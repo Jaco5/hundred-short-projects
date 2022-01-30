@@ -29,7 +29,9 @@ def init():
     text = input("Message text: ")
     if len(text) == 0: init()
     seed = input("Enter double digit seed: ")
-    if len(seed) != 2: seed = str(random.randint(10,99)); print("Invalid seed. " + str(seed) + " used instead.")
+    if len(seed) != 2:
+        seed = str(random.randint(10,99))
+        print(f"Invalid seed. {seed} used instead.")
     mode = input("""Options:
 'e' - encrypt mode
 'd' - decrypt mode
