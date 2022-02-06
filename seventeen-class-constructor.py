@@ -42,11 +42,13 @@ def create_canvas(window):
 
 def animation(window, canvas, group):
     for each in group:
-        canvas.create_oval(each.location[0], each.location[1], each.location[0]+each.number, each.location[1]+each.number, fill='green')
+        ball = canvas.create_oval(each.location[0], each.location[1], each.location[0]+each.number, each.location[1]+each.number, fill='green', outline= "Green", width=each.number)
         print(each)
+    while True:
+        window.update()
+        time.sleep(.1)
     
-    #for each in group:
-     #   each.location[0] = each.location[0] + each.vector[0]
-      #  each.location[1] = each.location[1] + each.vector[1] 
 
-animation(create_window,create_canvas,group)
+animwindow = create_window()
+animcanvas = create_canvas(animwindow)
+animation(animwindow,animcanvas,group)
