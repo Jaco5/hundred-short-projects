@@ -26,4 +26,10 @@ result = [int(num) for num in contents1 if num in contents2]
 
 print(result)
 
+# Dictionary coprehension
+# new_dict = {new_key:new_value for (key,value) in dict.items() if True}
+sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
+result = {item:len(item) for item in sentence.split() }
+print(result)
+
 
